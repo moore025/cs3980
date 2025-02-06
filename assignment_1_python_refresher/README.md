@@ -18,3 +18,11 @@ You can view my source code [here](https://github.com/moore025/cs3980/blob/7f180
 For this part of the assignment, I was instructed to make use of decorators and create a method called fib() that calculates the fibonacci sequence value of a given number. Along with this, I was instructed to use the lru_cache from the functools package to improve execution time as well as define a decorator named timer with a wrapper function that calculates the fibonacci sequence by calling fib and prints the result in a format that also includes the execution time. Along with this, I created a plot of execution time in seconds against the associated number used to calculate the fibonacci sequence of between 0 and 100 inclusive. With larger numbers requiring more calculations to be made to find the fibonacci sequence value, we expected runtime to increase as the input number increased. This was indeed observed in the plot shown below. One interesting thing to note about my plot is that my runtime was generally quicker than that of the example given to us. In fact, my maximum execution time (fib(100)) was around 0.00035 seconds. My source code for this step can be found [here](https://github.com/moore025/cs3980/blob/27ec6d17a223e7db832677b2b00101389f88dea4/assignment_1_python_refresher/fib.py).
 
 ![image](https://github.com/moore025/cs3980/blob/8d26ab9d4665e31912bb1b4d3088a10a94a13886/assignment_1_python_refresher/fib_time_vs_num.png)
+<p align="center">
+<em>Execution time plot</em>
+</p>
+
+![image](https://github.com/user-attachments/assets/a31bddb0-97bd-4f32-8d78-81c345bd5781)
+<p align="center">
+<em>Example output in terminal from running fib.py</em>
+</p>
