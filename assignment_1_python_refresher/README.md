@@ -1,6 +1,13 @@
 # Assignment 1: Python Refresher
   The purpose of this assignment is to get familiar with coding in Python using VSCode, committing changes to git, and refresh skills in installing libraries.
 There are three total steps to this assignment. Step 0 (omitted): Create a GitHub repository. If you are reading this now, then this means this step was successfully completed.
+
+## Necessary Packages
+For this assignment, I utilized the functools, time, and matplotlib packages.
+
+## Usage
+To run echo.py and fib.py from assignment_1_python_refresher yourself, you'll want to first clone the repository, build/start the project locally in your preferred code editor, modify the source code to fit your needs, and run as necessary.
+
 ## Step 1: Python Programming Basics.
 This step instructs the creation of a Python script echo.py that implements a method to take a user-defined string input
 and return a string that resembles the input being echoed similar to if one were to shout on top of a mountain. To implement this, I created a function called echo() that takes
