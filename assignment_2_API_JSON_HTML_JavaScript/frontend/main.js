@@ -1,33 +1,35 @@
-const api = 'http://127.0.0.1:8000/todos';
+const api = 'https://datausa.io/api/data?drilldowns=Nation&measures=Population';
+//const api = 'http://127.0.0.1:8000'
 
-const displayTodos = (todos) => {
-  const tbody = document.getElementById('todo-rows');
+const displayPopulation = (population) => {
+  const tbody = document.getElementById('population-rows');
   tbody.innerHTML = '';
-  const rows = todos.map((x) => {
+  //const data = JSON.parse(api)
+  const rows = population.map((x) => {
     return `<tr>
-        <td>${x.id}</td>
-        <td>${x.title}</td>
-        <td>${x.desc}</td>
+        <td>${x['ID Year']}</td>
+        <td>${x.Population}</td>
         <td></td>
     </tr>`;
   });
   tbody.innerHTML = rows.join(' ');
 };
 
-const getTodos = () => {
+const getPopulation = () => {
   const xhr = new XMLHttpRequest();
+  xhr.open('GET', api, true);
+  xhr.send();
+
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
-      data = JSON.parse(xhr.responseText);
-      console.log(data);
-      displayTodos(data);
+      const r = JSON.parse(xhr.responseText);
+      console.log(r.data);
+      displayPopulation(r.data);
     }
   };
 
-  xhr.open('GET', api, true);
-  xhr.send();
 };
 
 (() => {
-  getTodos();
+  getPopulation();
 })();

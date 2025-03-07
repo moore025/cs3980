@@ -1,4 +1,4 @@
-# Assignment 2: Python Refresher
+# Assignment 2: API JSON HTML JavaScript
 
 
 ## Necessary Packages
@@ -7,7 +7,5 @@
 ## Usage
 
 
-## Step 1: Python Programming Basics.
+## Step 1: Create a web page to display US Population data.
 
-
-## Step 2: Python Decorator Implementation
