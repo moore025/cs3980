@@ -4,7 +4,7 @@ let titleEditInput = document.getElementById('title-edit');
 let descEditInput = document.getElementById('desc-edit');
 let data = [];
 let selectedTodo = {};
-const api = 'http://127.0.0.1:8000/todos';
+const api = 'http://127.0.0.1:8000/reviews';
 
 function tryAdd() {
   let msg = document.getElementById('msg');
