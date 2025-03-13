@@ -17,4 +17,12 @@ From here, you can add a review by clicking the "Add New Review" button which wi
 
 ![image](https://github.com/user-attachments/assets/e2883b97-0499-4807-914d-823f1871648a)
 
-If you change your mind about a review, you can edit it and update it as necessary by clicking the "edit" button of the respective review. Additionally, you can also delete a review by clicking the "delete" or "trash" icon on the respective review.
+If you change your mind about a review, you can edit it and update it as necessary by clicking the "edit" button of the respective review. 
+![image](https://github.com/user-attachments/assets/3f3235f3-7e91-49c1-82fe-70a53bf155b6)
+![image](https://github.com/user-attachments/assets/9f3e0119-23d9-4a50-ad73-6350cef2956d)
+
+
+Additionally, you can also delete a review by clicking the "delete" or "trash" icon on the respective review. Make sure that you do not need the review anymore, though, because once the trash icon is clicked the review will be deleted without any extra confirmation.
+
+## Next Steps
+If I were to advance this project for our final project, the first changes that I would make would be to first implement searching functionality that allows for users to search up Iowa City restaurants to see what locals think about them. This would involve implementing a new restaurant class that might have key values like average rating, address, website, menu, etc. that would be displayed upon to the user upon searching a restaurant. I think that there are many ways to move forward with this idea and many changes that could be made to transform the user experience, which makes me excited about the potential of this idea.
