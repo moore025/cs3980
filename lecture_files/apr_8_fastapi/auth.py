@@ -25,11 +25,3 @@ def decode_jwt_token(token: str) -> TokenData | None:
         )
     except jwt.InvalidTokenError:
         print("Invalid JWT token.")
-
-
-a = create_access_token({"user_name": "nichmoore"})
-print(a)
-
-b = decode_jwt_token(a)
-print(b.username)
-print(b.exp_datatime)
