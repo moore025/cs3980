@@ -1,10 +1,12 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from typing import Annotated
-
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from auth import create_access_token, decode_jwt_token, TokenData, Token
+from hash_pass import *
 
-from token_data import TokenData
-from auth import create_access_token, decode_jwt_token
+hash_password = HashPassword()
+
+in_memory_db = [{"username": "hi", "password": "a"}]
 
 app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
@@ -18,9 +20,17 @@ def get_user(token: Annotated[str, Depends(oauth2_scheme)]) -> TokenData:
 async def login_for_access_token(
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
 ) -> str:
-    ## assume user is authenticated by username and password verification
+    ## Authenticate user by verifying the user in DB
     username = form_data.username
-    return create_access_token({"username": username})
+    for u in in_memory_db:
+        if u["username"] == username:
+            print(u["password"])
+            print(hash_password.create_hash("hi123"))
+            authenticated = hash_password.verify_hash(form_data.password, u["password"])
+            if authenticated:
+                access_token = create_access_token({"username": username})
+                return Token(access_token=access_token)
+    return HTTPException(status_code=401, detail="Invalid username or password")
 
 
 @app.get("/users/me")

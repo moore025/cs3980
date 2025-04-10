@@ -1,7 +1,11 @@
 from datetime import datetime, timedelta, timezone
 import jwt
+from pydantic import BaseModel
 
-from token_data import TokenData
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
 
 
 class TokenData(BaseModel):
@@ -26,8 +30,6 @@ def decode_jwt_token(token: str) -> TokenData | None:
         payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
         username: str = payload.get("user_name")
         exp: int = payload.get("exp")
-        return TokenData(
-            {"username": username, "exp_datetime": datetime.fromtimestamp()}
-        )
+        return TokenData(username=username, exp_datetime=datetime.fromtimestamp(exp))
     except jwt.InvalidTokenError:
         print("Invalid JWT token.")
