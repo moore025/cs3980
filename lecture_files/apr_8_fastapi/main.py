@@ -4,12 +4,11 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from auth import create_access_token, decode_jwt_token, TokenData, Token
 from hash_pass import *
 
-hash_password = HashPassword()
-
 in_memory_db = [{"username": "hi", "password": "a"}]
 
 app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+hash_password = HashPassword()
 
 
 def get_user(token: Annotated[str, Depends(oauth2_scheme)]) -> TokenData:
