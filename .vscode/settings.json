@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./apr_15/api"
+    ]
+}
