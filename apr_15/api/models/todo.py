@@ -7,6 +7,9 @@ class Todo(Document):
     title: str
     description: str
 
+    class Settings:
+        name = "todos"
+
 
 class TodoRequest(BaseModel):
     title: str

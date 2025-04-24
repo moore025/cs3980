@@ -42,16 +42,16 @@ const refreshTodos = () => {
   const todos = document.getElementById('todos');
   todos.innerHTML = '';
   data
-    .sort((a, b) => b.id - a.id)
+    .sort((a, b) => b._id - a._id)
     .map((x) => {
       return (todos.innerHTML += `
-        <div id="todo-${x.id}">
+        <div id="todo-${x._id}">
           <span class="fw-bold fs-4">${x.title}</span>
           <pre class="text-secondary ps-3">${x.description}</pre>
   
           <span class="options">
-            <i onClick="tryEditTodo(${x.id})" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
-            <i onClick="deleteTodo(${x.id})" class="fas fa-trash-alt"></i>
+            <i onClick="tryEditTodo(${x._id})" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
+            <i onClick="deleteTodo(${x._id})" class="fas fa-trash-alt"></i>
           </span>
         </div>
     `);
@@ -60,10 +60,10 @@ const refreshTodos = () => {
   resetForm();
 };
 const tryEditTodo = (id) => {
-  const todo = data.find((x) => x.id === id);
+  const todo = data.find((x) => x._id === id);
   selectedTodo = todo;
   const todoId = document.getElementById('todo-id');
-  todoId.innerText = todo.id;
+  todoId.innerText = todo._id;
   titleEditInput.value = todo.title;
   descEditInput.value = todo.description;
   document.getElementById('msg').innerHTML = '';
@@ -90,7 +90,7 @@ const editTodo = (title, description) => {
       closeBtn.click();
     }
   };
-  xhr.open('PUT', `${api}/${selectedTodo.id}`, true);
+  xhr.open('PUT', `${api}/${selectedTodo._id}`, true);
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   xhr.send(JSON.stringify({ title, description }));
 };
@@ -99,7 +99,7 @@ const deleteTodo = (id) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
-      data = data.filter((x) => x.id !== id);
+      data = data.filter((x) => x._id !== id);
       refreshTodos();
     }
   };
