@@ -1,5 +1,7 @@
+# FROM MIDTERM PROJECT. Keep for reference.
+
 from fastapi import APIRouter, Path, HTTPException, status
-from model import Review, ReviewRequest
+from models.review import Review, ReviewRequest
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 

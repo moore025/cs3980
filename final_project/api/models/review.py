@@ -1,11 +1,15 @@
 from pydantic import BaseModel
+from beanie import Document
 
 
-class Review(BaseModel):
+class Review(Document):
     id: int
     restaurant: str
-    rating: str  # Rating 1-10
+    rating: str
     description: str
+
+    class Settings:
+        name = "reviews"
 
 
 class ReviewRequest(BaseModel):
