@@ -1,4 +1,6 @@
 from contextlib import asynccontextmanager
+import logging
+from final_project.api.logging_setup import setup_logging
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,16 +12,18 @@ from routers.user import user_router
 from routers.movie import movie_router
 import os
 
+setup_logging()
+logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # on startup event
-    print("Application starts...")
+    logger.info("Application starts...")
     print(os.system("pwd"))
     await init_database()
     yield
     # on shutdown event
-    print("Application shuts down...")
+    logger.info("Application shuts down...")
 
 
 app = FastAPI(title="Review App", version="2.0.0", lifespan=lifespan)
