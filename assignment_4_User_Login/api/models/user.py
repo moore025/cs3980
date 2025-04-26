@@ -4,8 +4,8 @@ from pydantic import BaseModel
 
 class User(Document):
     username: str
-    email: str
-    role: str
+    email: str = "123@gmail.com"
+    role: str = "basic"
     password: str  # hash and salted password in the database
 
     class Settings:
