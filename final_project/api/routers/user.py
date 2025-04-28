@@ -49,7 +49,7 @@ async def sign_up(user: UserRequest):
 
     hashed_pwd = hash_password.create_hash(user.password)
     new_user = User(
-        username=user.username, password=hashed_pwd, email=user.email
+        username=user.username, password=hashed_pwd, email=user.email, role="basic"
     )  # Add parameters to username for final project i.e. no more than 100 characters, no special characters, etc.
     await new_user.create()
     return {"message": "User created successfully"}

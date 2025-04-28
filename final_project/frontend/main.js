@@ -1,12 +1,18 @@
 let restaurantInput = document.getElementById('restaurant');
 let ratingInput = document.getElementById('rating');
 let descInput = document.getElementById('desc');
+let usernameInput = document.getElementById('username');
+let passwordInput = document.getElementById('password');
+let usernameInputSU = document.getElementById('usernameSU');
+let passwordInputSU = document.getElementById('passwordSU');
 let restaurantEditInput = document.getElementById('restaurant-edit');
 let ratingEditInput = document.getElementById('rating-edit');
 let descEditInput = document.getElementById('desc-edit');
 let data = [];
 let selectedReview = {};
 const api = 'http://127.0.0.1:8000/reviews';
+const apiUser = 'http://127.0.0.1:8000/users';
+const apiUserSU = 'http://127.0.0.1:8000/users/signup';
 
 function tryAdd() {
   let msg = document.getElementById('msg');
@@ -20,6 +26,24 @@ document.getElementById('form-add').addEventListener('submit', (e) => { //Event 
     document.getElementById('msg').innerHTML = 'Review cannot be blank';
   } else {
     addReview(restaurantInput.value, ratingInput.value, descInput.value);
+  }
+});
+
+document.getElementById('form-add2').addEventListener('submit', (e) => { //Event listener for Log In button.
+  e.preventDefault();
+  if (!usernameInput.value || !passwordInput.value) { //Ensures that the msg body of the form is not blank.
+    document.getElementById('msg2').innerHTML = 'Username or Password cannot be blank!';
+  } else {
+    login(usernameInput.value, passwordInput.value);
+  }
+});
+
+document.getElementById('SU').addEventListener('click', (e) => { //Event listener for Sign Up button.
+  e.preventDefault();
+  if (!usernameInputSU.value || !passwordInputSU.value) { //Ensures that the msg body of the form is not blank.
+    document.getElementById('msg3').innerHTML = 'Username or Password cannot be blank!';
+  } else {
+    newUser(usernameInputSU.value, passwordInputSU.value);
   }
 });
 
@@ -37,6 +61,48 @@ const addReview = (restaurant, rating, description) => {
       refreshReviews();
       // close modal
       const closeBtn = document.getElementById('add-close');
+      closeBtn.click();
+    }
+  };
+};
+
+const newUser = (username, password) => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('POST', apiUserSU, true);
+  email = "test@123.com"
+  // const formData = new FormData();
+  // formData.append("username", username);
+  // formData.append("password", password);
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.send(JSON.stringify({username, email, password}));
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const a = JSON.parse(xhr.responseText);
+      localStorage.setItem("Access Token", a["access_token"])
+      // close modal
+      const closeBtn = document.getElementById('add-close-signup');
+      closeBtn.click();
+    }
+  };
+};
+
+const login = (username, password) => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('POST', apiUser + '/sign-in', true);
+  const formData = new FormData();
+  formData.append("username", username);
+  formData.append("password", password);
+  xhr.send(formData);
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const a = JSON.parse(xhr.responseText);
+      localStorage.setItem("Access Token", a["access_token"])
+      // close modal
+      const closeBtn = document.getElementById('add-close-login');
       closeBtn.click();
     }
   };

@@ -19,8 +19,28 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body class="py-4">
+    
     <div class="app mx-auto">
       <h1 class="mb-3">HawkBites IC Restaurant Reviewer</h1>
+
+      <div class="buttons">
+        <button
+        id="login"
+        type="button" class="btn btn-primary btn-success"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+        data-bs-toggle="modal"
+        data-bs-target="#modal-login"
+      >LOG IN
+      </button>
+        <button
+          id="signup"
+          type="button" class="btn btn-primary "
+          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-signup"
+        >SIGN UP
+      </button>
+      </div>
 
       <button
         id="addNew"
@@ -35,6 +55,102 @@
       <h2 class="text-center my-3">Reviews</h2>
 
       <div id="reviews"></div>
+    </div>
+
+    <!-- Modal for login-->
+    <div
+      class="modal fade"
+      id="modal-login"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-title">Log In</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="form-add2">
+              <label for="username">Username</label>
+              <input id="username" type="text" class="form-control" name="" />
+              <div id="msg2"></div>
+
+              <label for="password">Password</label>
+              <input id="password" type="text" class="form-control" name="" />
+              <div id="password"></div>
+
+              <div class="mt-3">
+                <button
+                  id="add-close-login"
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" id="log" class="btn btn-primary">
+                  Log In
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Modal for signup-->
+    <div
+      class="modal fade"
+      id="modal-signup"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-title">Sign Up</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="form-add3">
+              <label for="usernameSU">Username</label>
+              <input id="usernameSU" type="text" class="form-control" name="" />
+              <div id="msg3"></div>
+
+              <label for="passwordSU">Password</label>
+              <input id="passwordSU" type="text" class="form-control" name="" />
+              <div id="passwordSUfield"></div>
+
+              <div class="mt-3">
+                <button
+                  id="add-close-signup"
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" id="SU" class="btn btn-primary">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Modal  for adding a new Review-->

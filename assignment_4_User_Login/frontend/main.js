@@ -38,12 +38,12 @@ document.getElementById('form-add2').addEventListener('submit', (e) => { //Event
   }
 });
 
-document.getElementById('form-add3').addEventListener('SU', (e) => { //Event listener for Sign Up button.
+document.getElementById('SU').addEventListener('click', (e) => { //Event listener for Sign Up button.
   e.preventDefault();
   if (!usernameInputSU.value || !passwordInputSU.value) { //Ensures that the msg body of the form is not blank.
     document.getElementById('msg3').innerHTML = 'Username or Password cannot be blank!';
   } else {
-    addUser(usernameInputSU.value, passwordInputSU.value);
+    newUser(usernameInputSU.value, passwordInputSU.value);
   }
 });
 
@@ -70,17 +70,19 @@ const newUser = (username, password) => {
   const xhr = new XMLHttpRequest();
 
   xhr.open('POST', apiUserSU, true);
-  const formData = new FormData();
-  formData.append("username", username);
-  formData.append("password", password);
-  xhr.send(formData);
+  email = "test@123.com"
+  // const formData = new FormData();
+  // formData.append("username", username);
+  // formData.append("password", password);
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.send(JSON.stringify({username, email, password}));
 
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       const a = JSON.parse(xhr.responseText);
       localStorage.setItem("Access Token", a["access_token"])
       // close modal
-      const closeBtn = document.getElementById('add-close-login');
+      const closeBtn = document.getElementById('add-close-signup');
       closeBtn.click();
     }
   };
@@ -100,7 +102,7 @@ const login = (username, password) => {
       const a = JSON.parse(xhr.responseText);
       localStorage.setItem("Access Token", a["access_token"])
       // close modal
-      const closeBtn = document.getElementById('add-close-signup');
+      const closeBtn = document.getElementById('add-close-login');
       closeBtn.click();
     }
   };

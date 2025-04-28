@@ -42,16 +42,19 @@ user_router = APIRouter()
     "/signup"
 )  # If user has already signed up, then make sure they can't sign up again
 async def sign_up(user: UserRequest):
+    print("Enters Sign Up")
     existing_user = await User.find_one(User.username == user.username)
-
+    print("Searches for User")
     if existing_user:
         raise HTTPException(status_code=400, detail="User already exists.")
 
     hashed_pwd = hash_password.create_hash(user.password)
+    print("Hashed PW, waiting to make new user")
     new_user = User(
         username=user.username, password=hashed_pwd, email=user.email
     )  # Add parameters to username for final project i.e. no more than 100 characters, no special characters, etc.
     await new_user.create()
+    print("User created")
     return {"message": "User created successfully"}
 
 

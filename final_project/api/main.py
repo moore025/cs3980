@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 import logging
-from final_project.api.logging_setup import setup_logging
+from logging_setup import setup_logging
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,6 +14,7 @@ import os
 
 setup_logging()
 logger = logging.getLogger(__name__)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
