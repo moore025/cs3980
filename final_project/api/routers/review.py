@@ -17,7 +17,7 @@ async def add_review(review: ReviewRequest) -> Review:
 
     newReview = Review(
         id=max_id,
-        title=review.restaurant,
+        restaurant=review.restaurant,
         rating=review.rating,
         description=review.description,
     )
