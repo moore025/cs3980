@@ -9,7 +9,7 @@ class MyConfig(BaseSettings):
 
     # print(os.system("pwd"))
     model_config = SettingsConfigDict(
-        env_file="/Users/nickmoore/VSCode/CS3980/cs3980/final_project/api/.env"
+        env_file="./.env"
     )
 
 
