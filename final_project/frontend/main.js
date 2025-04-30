@@ -121,8 +121,8 @@ const refreshReviews = () => {
           <pre class="text-secondary ps-3">Review: ${x.description}</pre>
   
           <span class="options">
-            <i onClick="tryEditReview(${x._id})" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
-            <i onClick="deleteReview(${x._id})" class="fas fa-trash-alt"></i>
+            <i onClick="tryEditReview('${x._id}')" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
+            <i onClick="deleteReview('${x._id}')" class="fas fa-trash-alt"></i>
           </span>
         </div>
     `);
@@ -171,14 +171,15 @@ const editReview = (restaurant, rating, description) => {
 
 const deleteReview = (id) => {
   const xhr = new XMLHttpRequest();
-  xhr.open('DELETE', `${api}/${id}`, true);
-  xhr.send();
+
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       data = data.filter((x) => x._id !== id);
       refreshReviews();
     }
   };
+  xhr.open('DELETE', `${api}/${id}`, true);
+  xhr.send();
 };
 
 const resetForm = () => {
