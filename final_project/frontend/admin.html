@@ -21,42 +21,15 @@
   <body class="py-4">
     
     <div class="app mx-auto">
-      <h1 class="mb-3">HawkBites IC Restaurant Reviewer</h1>
-
-      <a href='admin.html'> ADMIN</a>
-
-      <div class="buttons">
-        <button
-        id="login"
-        type="button" class="btn btn-primary btn-success"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-        data-bs-toggle="modal"
-        data-bs-target="#modal-login"
-      >LOG IN
-      </button>
-        <button
-          id="signup"
-          type="button" class="btn btn-primary "
-          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-          data-bs-toggle="modal"
-          data-bs-target="#modal-signup"
-        >SIGN UP
-      </button>
-      </div>
-
-      <button
-        id="addNew"
-        onClick="tryAdd()"
-        data-bs-toggle="modal"
-        data-bs-target="#modal-add"
-      >
-        <span>Add New Review</span>
-        <i class="fas fa-plus"></i>
-      </button>
+      <h1 class="mb-3">HawkBites IC Restaurant Reviewer - ADMIN</h1>
 
       <h2 class="text-center my-3">Reviews</h2>
 
       <div id="reviews"></div>
+
+      <h2 class="text-center my-3">Users</h2>
+
+      <div id="users"></div>
     </div>
 
     <!-- Modal for login-->
