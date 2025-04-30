@@ -112,17 +112,17 @@ const refreshReviews = () => {
   const reviews = document.getElementById('reviews');
   reviews.innerHTML = '';
   data
-    .sort((a, b) => b.id - a.id)
+    .sort((a, b) => b._id - a._id)
     .map((x) => { //LOOK INTO FURTHER
       return (reviews.innerHTML += `
-        <div id="review-${x.id}">
+        <div id="review-${x._id}">
           <span class="fw-bold fs-4">${x.restaurant}</span>
           <pre class="text-secondary ps-3">Rating: ${x.rating}/10</pre>
           <pre class="text-secondary ps-3">Review: ${x.description}</pre>
   
           <span class="options">
-            <i onClick="tryEditReview(${x.id})" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
-            <i onClick="deleteReview(${x.id})" class="fas fa-trash-alt"></i>
+            <i onClick="tryEditReview(${x._id})" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
+            <i onClick="deleteReview(${x._id})" class="fas fa-trash-alt"></i>
           </span>
         </div>
     `);
@@ -131,10 +131,10 @@ const refreshReviews = () => {
   resetForm();
 };
 const tryEditReview = (id) => {
-  const review = data.find((x) => x.id === id);
+  const review = data.find((x) => x._id === id);
   selectedReview = review;
   const reviewId = document.getElementById('review-id');
-  reviewId.innerText = review.id;
+  reviewId.innerText = review._id;
   restaurantEditInput.value = review.restaurant;
   ratingEditInput.value = review.rating;
   descEditInput.value = review.description;
@@ -164,7 +164,7 @@ const editReview = (restaurant, rating, description) => {
       closeBtn.click();
     }
   };
-  xhr.open('PUT', `${api}/${selectedReview.id}`, true); //Update review
+  xhr.open('PUT', `${api}/${selectedReview._id}`, true); //Update review
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   xhr.send(JSON.stringify({ restaurant, rating, description }));
 };
@@ -173,10 +173,9 @@ const deleteReview = (id) => {
   const xhr = new XMLHttpRequest();
   xhr.open('DELETE', `${api}/${id}`, true);
   xhr.send();
-
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
-      data = data.filter((x) => x.id !== id);
+      data = data.filter((x) => x._id !== id);
       refreshReviews();
     }
   };
@@ -192,7 +191,6 @@ const getReviews = () => {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', api, true);
   xhr.send();
-
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       data = JSON.parse(xhr.responseText) || [];

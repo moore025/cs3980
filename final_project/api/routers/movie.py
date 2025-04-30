@@ -19,16 +19,16 @@ async def add_new_movie(r: MovieRequest) -> Movie:
 
 @movie_router.get("")
 async def get_all_movies(user: Annotated[TokenData, Depends(get_user)]) -> list[Movie]:
-    if not user or not user.username:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail=f"Please login.",
-        )
-    if user.role != "AdminUser":
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail=f"You don't have enough permissions for this action.",
-        )
+    # if not user or not user.username:
+    #     raise HTTPException(
+    #         status_code=status.HTTP_401_UNAUTHORIZED,
+    #         detail=f"Please login.",
+    #     )
+    # if user.role != "AdminUser":
+    #     raise HTTPException(
+    #         status_code=status.HTTP_403_FORBIDDEN,
+    #         detail=f"You don't have enough permissions for this action.",
+    #     )
     return await Movie.find_all().to_list()
 
 

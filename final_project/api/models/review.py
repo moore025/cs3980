@@ -3,7 +3,6 @@ from beanie import Document
 
 
 class Review(Document):
-    id: int
     restaurant: str
     rating: str
     description: str
