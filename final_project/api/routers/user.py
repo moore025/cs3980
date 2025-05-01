@@ -1,3 +1,4 @@
+import logging
 from typing import Annotated
 from beanie import PydanticObjectId
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -37,6 +38,7 @@ def get_user(token: Annotated[str, Depends(oauth2_scheme)]) -> TokenData:
 
 
 user_router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 @user_router.post(
@@ -53,6 +55,7 @@ async def sign_up(user: UserRequest):
         username=user.username, password=hashed_pwd, email=user.email, role="BasicUser"
     )  # Add parameters to username for final project i.e. no more than 100 characters, no special characters, etc.
     await new_user.create()
+    logger.info(f"User with username = {new_user.username} created")
     return {"message": "User created successfully"}
 
 
@@ -76,6 +79,7 @@ async def login_for_access_token(
         access_token = create_access_token(
             {"username": username, "role": existing_user.role}
         )
+        logger.info(f"{username} signed in")
         return LoginResult(
             access_token=access_token,
             username=existing_user.username,
@@ -97,6 +101,7 @@ async def get_all_users(user: Annotated[TokenData, Depends(get_user)]) -> list[U
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"You don't have enough permissions for this action.",
         )
+    logger.info(f"{user.username} retrieved all users")
     return await User.find_all().to_list()
 
 
@@ -128,14 +133,18 @@ async def update_user_role(
         affected_user.role = "BasicUser"
 
     await affected_user.save()
+    logger.info(f"{user.username} changed {affected_user.username}'s role")
     return {"newRole": affected_user.role}
 
 
 @user_router.delete("/{id}")
-async def delete_user(id: PydanticObjectId) -> dict:
-    user = await User.get(id)
-    if user:
-        await user.delete()
+async def delete_user(
+    id: PydanticObjectId, user: Annotated[TokenData, Depends(get_user)]
+) -> dict:
+    delete_user = await User.get(id)
+    if delete_user:
+        logger.info(f"{user.username} deleted {delete_user.username}")
+        await delete_user.delete()
         return {"message": f"The user with ID={id} has been deleted."}
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND,
