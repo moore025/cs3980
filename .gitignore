@@ -1,0 +1,15 @@
+final_project/api/__pycache__/logging_setup.cpython-313.pyc
+final_project/api/__pycache__/main.cpython-313.pyc
+final_project/api/auth/__pycache__/jwt_auth.cpython-313.pyc
+final_project/api/db/__pycache__/db_context.cpython-313.pyc
+final_project/api/logs/app.log
+final_project/api/logs/app.log.2025-04-29
+final_project/api/models/__pycache__/movie.cpython-313.pyc
+final_project/api/models/__pycache__/my_config.cpython-313.pyc
+final_project/api/models/__pycache__/restaurant.cpython-313.pyc
+final_project/api/models/__pycache__/review.cpython-313.pyc
+final_project/api/models/__pycache__/user.cpython-313.pyc
+final_project/api/routers/__pycache__/__init__.cpython-313.pyc
+final_project/api/routers/__pycache__/movie.cpython-313.pyc
+final_project/api/routers/__pycache__/review.cpython-313.pyc
+final_project/api/routers/__pycache__/user.cpython-313.pyc
