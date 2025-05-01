@@ -11,7 +11,7 @@ from auth.jwt_auth import (
     create_access_token,
     decode_jwt_token,
 )
-from models.user import User, UserDto, UserRequest
+from models.user import User, UserRequest
 
 in_memory_db = {}
 
