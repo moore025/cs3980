@@ -68,6 +68,7 @@ const login = (username, password) => {
       // close modal
       const closeBtn = document.getElementById('add-close-login');
       closeBtn.click();
+      window.location.href="main.html";
     }
   };
 };
@@ -86,14 +87,26 @@ const refreshReviewsAdmin = () => {
           <pre class="text-secondary ps-3">Review: ${x.description}</pre>
   
           <span class="options">
-            <i onClick="tryEditReview('${x._id}')" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
-            <i onClick="deleteReview('${x._id}')" class="fas fa-trash-alt"></i>
+            <i onClick="deleteReviewAdmin('${x._id}')" class="fas fa-trash-alt"></i>
           </span>
         </div>
     `);
     });
 
   resetForm();
+};
+
+const deleteReviewAdmin = (id) => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      data = data.filter((x) => x._id !== id);
+      refreshReviewsAdmin();
+    }
+  };
+  xhr.open('DELETE', `${api}/${id}`, true);
+  xhr.send();
 };
 
 const getReviewsAdmin = () => {
@@ -136,14 +149,31 @@ const refreshUsersAdmin = () => {
           <pre class="text-secondary ps-3">Role: ${x.role}</pre>
   
           <span class="options">
-            <i onClick="tryEditReview('${x._id}')" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
-            <i onClick="deleteReview('${x._id}')" class="fas fa-trash-alt"></i>
+            <i onClick="editUser('${x._id}')" class="fas fa-edit"></i>
+            <i onClick="deleteUser('${x._id}')" class="fas fa-trash-alt"></i>
           </span>
         </div>
     `);
     });
 
   resetForm();
+};
+
+const editUser = (id) => {
+  const user = data.find((x) => x._id === id);
+  console.log(user._id);
+  const xhr = new XMLHttpRequest();
+  xhr.open('PUT', `${apiUser}/${user._id}`, true);
+  xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("Access Token"));
+  xhr.setRequestHeader("Content-Type", "application/json");
+  console.log(id);
+  xhr.send(JSON.stringify(user._id));
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      data = JSON.parse(xhr.responseText) || [];
+      refreshUsersAdmin();
+    }
+  };
 };
 
 

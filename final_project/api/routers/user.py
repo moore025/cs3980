@@ -86,7 +86,7 @@ async def login_for_access_token(
 
 
 @user_router.get("")
-async def get_all_users(user: Annotated[TokenData, Depends(get_user)]) -> list[UserDto]:
+async def get_all_users(user: Annotated[TokenData, Depends(get_user)]) -> list[User]:
     if not user or not user.username:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -97,17 +97,10 @@ async def get_all_users(user: Annotated[TokenData, Depends(get_user)]) -> list[U
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"You don't have enough permissions for this action.",
         )
-    users = await User.find_all().to_list()
-    result = []
-    for u in users:
-        result.append(
-            UserDto(id=str(u.id), username=u.username, email=u.email, role=u.role)
-        )
-    print(result)
-    return result
+    return await User.find_all().to_list()
 
 
-@user_router.post("/{id}")
+@user_router.put("/{id}")
 async def update_user_role(
     id: PydanticObjectId, user: Annotated[TokenData, Depends(get_user)]
 ) -> dict:  # check this line

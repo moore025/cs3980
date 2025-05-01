@@ -24,8 +24,6 @@
       <h1 class="mb-3">HawkBites IC Restaurant Reviewer</h1>
 
       <div class="buttons">
-        <button onclick= "document.location='search.html'" type="button" class="btn btn-light">Search</button>
-        <button onclick= "document.location='admin.html'" type="button" class="btn btn-light">ADMIN</button>
         <button
         id="login"
         type="button" class="btn btn-primary btn-success"
@@ -43,20 +41,6 @@
         >SIGN UP
       </button>
       </div>
-
-      <button
-        id="addNew"
-        onClick="tryAdd()"
-        data-bs-toggle="modal"
-        data-bs-target="#modal-add"
-      >
-        <span>Add New Review</span>
-        <i class="fas fa-plus"></i>
-      </button>
-
-      <h2 class="text-center my-3">Reviews</h2>
-
-      <div id="reviews"></div>
     </div>
 
     <!-- Modal for login-->
@@ -147,120 +131,6 @@
                 </button>
                 <button type="button" id="SU" class="btn btn-primary">
                   Sign Up
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal  for adding a new Review-->
-    <div
-      class="modal fade"
-      id="modal-add"
-      tabindex="-1"
-      aria-labelledby="modal-title"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="modal-title">Add New Review</h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="form-add">
-              <label for="restaurant">Restaurant to be Reviewed</label>
-              <input id="restaurant" type="text" class="form-control" name="" />
-              <div id="msg"></div>
-
-              <label for="rating">Rating for Restaurant (1-10)</label>
-              <input id="rating" type="text" class="form-control" name="" />
-              <div id="rating"></div>
-
-              <label for="desc" class="mt-3">Description</label>
-              <textarea
-                id="desc"
-                name=""
-                class="form-control"
-                cols="30"
-                rows="5"
-              ></textarea>
-              <div class="mt-3">
-                <button
-                  id="add-close"
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="submit" id="add" class="btn btn-primary">
-                  Add
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal  for editing a Review-->
-    <div
-      class="modal fade"
-      id="modal-edit"
-      tabindex="-1"
-      aria-labelledby="modal-title"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="modal-title">
-              Edit Review #<span id="review-id"></span>
-            </h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="form-edit">
-              <label for="restaurant-edit">Restaurant to be Reviewed</label>
-              <input id="restaurant-edit" type="text" class="form-control" name="" />
-              <div id="msg-edit"></div>
-
-              <label for="rating-edit">Rating for Restaurant (1-10)</label>
-              <input id="rating-edit" type="text" class="form-control" name="" />
-              <div id="rating-edit"></div>
-
-              <label for="desc-edit" class="mt-3">Description</label>
-              <textarea
-                id="desc-edit"
-                name=""
-                class="form-control"
-                cols="30"
-                rows="5"
-              ></textarea>
-              <div class="mt-3">
-                <button
-                  id="edit-close"
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="submit" id="edit" class="btn btn-primary">
-                  Update
                 </button>
               </div>
             </form>
