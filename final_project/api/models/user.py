@@ -23,10 +23,7 @@ class UserRequest(BaseModel):
 
 
 class UserDto(BaseModel):
-    """
-    **model for user sign up**
-    """
-
     id: str
     username: str
     email: str
+    role: str

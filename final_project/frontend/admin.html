@@ -23,9 +23,26 @@
     <div class="app mx-auto">
       <h1 class="mb-3">HawkBites IC Restaurant Reviewer - ADMIN</h1>
 
+      <div class="buttons">
+        <button onclick= "document.location='index.html'" type="button" class="btn btn-light">Home</button>
+        <button onclick= "document.location='search.html'" type="button" class="btn btn-light">Search</button>
+      </div>
+
+      <button
+        id="admin-load-reviews"
+        onClick="getReviewsAdmin()"
+      >Load All Reviews
+      </button>
+
+      <button
+        id="admin-load-users"
+        onClick="getUsersAdmin()"
+      >Load All Users
+      </button>
+
       <h2 class="text-center my-3">Reviews</h2>
 
-      <div id="reviews"></div>
+      <div id="admin-reviews"></div>
 
       <h2 class="text-center my-3">Users</h2>
 
