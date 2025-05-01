@@ -162,18 +162,33 @@ const refreshUsersAdmin = () => {
 const editUser = (id) => {
   const user = data.find((x) => x._id === id);
   console.log(user._id);
+  
   const xhr = new XMLHttpRequest();
   xhr.open('PUT', `${apiUser}/${user._id}`, true);
   xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("Access Token"));
   xhr.setRequestHeader("Content-Type", "application/json");
   console.log(id);
   xhr.send(JSON.stringify(user._id));
+
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
       data = JSON.parse(xhr.responseText) || [];
-      refreshUsersAdmin();
+      getUsersAdmin();
     }
   };
+};
+
+const deleteUser = (id) => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      data = data.filter((x) => x._id !== id);
+      getUsersAdmin();
+    }
+  };
+  xhr.open('DELETE', `${apiUser}/${id}`, true);
+  xhr.send();
 };
 
 

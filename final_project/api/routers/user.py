@@ -129,3 +129,15 @@ async def update_user_role(
 
     await affected_user.save()
     return {"newRole": affected_user.role}
+
+
+@user_router.delete("/{id}")
+async def delete_user(id: PydanticObjectId) -> dict:
+    user = await User.get(id)
+    if user:
+        await user.delete()
+        return {"message": f"The user with ID={id} has been deleted."}
+    raise HTTPException(
+        status_code=status.HTTP_404_NOT_FOUND,
+        detail=f"The user with ID={id} is not found.",
+    )

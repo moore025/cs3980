@@ -56,5 +56,5 @@ async def delete_review(id: PydanticObjectId) -> dict:
         return {"message": f"The review with ID={id} has been deleted."}
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND,
-        detail=f"The movie with ID={id} is not found.",
+        detail=f"The review with ID={id} is not found.",
     )
