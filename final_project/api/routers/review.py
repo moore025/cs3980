@@ -54,6 +54,19 @@ async def get_my_reviews(user: Annotated[TokenData, Depends(get_user)]) -> list[
     return await Review.find(Review.created_by == user.username).to_list()
 
 
+@review_router.get("/search")
+async def get_search_reviews(
+    restaurant: str, user: Annotated[TokenData, Depends(get_user)]
+) -> list[Review]:
+    if not user or not user.username:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f"Please login.",
+        )
+    logger.info(f"{user.username} is searching for reviews")
+    return await Review.find(Review.restaurant == restaurant).to_list()
+
+
 @review_router.put("/{id}")
 async def update_review(
     review: ReviewRequest,
