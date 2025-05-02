@@ -1,6 +1,7 @@
 let usernameInput = document.getElementById('username');
 let passwordInput = document.getElementById('password');
 let usernameInputSU = document.getElementById('usernameSU');
+let emailInputSU = document.getElementById('emailSU');
 let passwordInputSU = document.getElementById('passwordSU');
 const apiUser = 'http://127.0.0.1:8000/users';
 const apiUserSU = 'http://127.0.0.1:8000/users/signup';
@@ -17,18 +18,17 @@ document.getElementById('form-add2').addEventListener('submit', (e) => { //Event
   
   document.getElementById('SU').addEventListener('click', (e) => { //Event listener for Sign Up button.
     e.preventDefault();
-    if (!usernameInputSU.value || !passwordInputSU.value) { //Ensures that the msg body of the form is not blank.
-      document.getElementById('msg3').innerHTML = 'Username or Password cannot be blank!';
+    if (!usernameInputSU.value || ! emailInputSU.value || !passwordInputSU.value) { //Ensures that the msg body of the form is not blank.
+      document.getElementById('msg3').innerHTML = 'Username, Email, or Password cannot be blank!';
     } else {
-      newUser(usernameInputSU.value, passwordInputSU.value);
+      newUser(usernameInputSU.value, emailInputSU.value, passwordInputSU.value);
     }
   });
   
-  const newUser = (username, password) => {
+  const newUser = (username, email, password) => {
     const xhr = new XMLHttpRequest();
   
     xhr.open('POST', apiUserSU, true);
-    email = "test@123.com"
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     xhr.send(JSON.stringify({username, email, password}));
   
