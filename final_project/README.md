@@ -69,10 +69,13 @@ A search page has been introduced, enabling users to easily find reviews by ente
 
 #### Logging and Testing
 
-We integrated centralized logging across the application to monitor key events such as user sign-ins, failed logins, and admin actions. This helps with both debugging and maintaining a clear activity history. Additionally, we implemented automated tests using pytest to verify the behavior of routes, authentication, and role-based access control. These improvements enhance the reliability and maintainability of the application by catching issues early and providing visibility into system behavior.
+We integrated centralized logging across the application to monitor key events such as user sign-ins, failed logins, and admin actions. This helps with both debugging and maintaining a clear activity history. Additionally, we implemented automated tests using py!
+test to verify the behavior of routes, authentication, and role-based access control. These improvements enhance the reliability and maintainability of the application by catching issues early and providing visibility into system behavior.
 
 
+#### Video of Application in Action
 
+[15EDCDF1-9531-4C01-B8BB-52C489E6F1FE_1_206_a](https://github.com/user-attachments/assets/b6f7c298-ee4f-4baf-9167-5646570e3dc0)
 
 
 
