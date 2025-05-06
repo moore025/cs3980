@@ -20,10 +20,3 @@ class UserRequest(BaseModel):
     username: str
     email: str
     password: str  # plain text from user input
-
-
-class UserDto(BaseModel):
-    id: str
-    username: str
-    email: str
-    role: str

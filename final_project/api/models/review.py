@@ -6,6 +6,7 @@ class Review(Document):
     restaurant: str
     rating: str
     description: str
+    created_by: str
 
     class Settings:
         name = "reviews"

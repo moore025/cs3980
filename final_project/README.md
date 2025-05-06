@@ -31,6 +31,54 @@ Additionally, you can also delete a review by clicking the "delete" or "trash" i
 
 Once again, this project was heavily influenced by our in-class demos and was an expansion upon the Todo App. Most of the changes that I made to the Todo App code were stylistic in order to fit the theme of an IC restaurant review application including changing the appearance in the [style.css](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/frontend/style.css) file, changing form labels and review output format in the [index.html](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/frontend/index.html) file, and adding rating functionality to the [model.py](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/model.py) class as well as updating CRUD operations in [review.py](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/review.py) and [main.js](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/frontend/main.js) to handle this additional variable.
 
-## Next Steps
+## Final Project Updates
 
-If I were to advance this project for our final project, the first changes that I would make would be to first implement searching functionality that allows for users to search up Iowa City restaurants to see what locals think about them. This would involve implementing a new restaurant class that might have key values like average rating, address, website, menu, etc. that would be displayed upon to the user upon searching a restaurant. I think that there are many ways to move forward with this idea and many changes that could be made to transform the user experience, which makes me excited about the potential of this idea.
+We have implemented some major updates for the final version of the HawkBites app that is exhibited in this repository. These changes include: 
+- Implementing user login and data persistence functionality using MongoDB
+- Adding admin role with advanced permissions such as editing, deleting and viewing users and reviews on a separate webpage
+- Search page where users can search for reviews by restaurant
+- Added logging and automated testing for better reliability and debugging
+
+
+Here is the new home page after logging in with a username and password: 
+
+![alt text](screenshots/image-5.png)
+
+
+#### User Login and Data Persistence with MongoDB
+We implemented user authentication using JWT tokens and connected the app to MongoDB for persistent data storage. This allows users to register, log in, and securely manage their accounts, with all user data and reviews stored in a durable database.
+
+![alt text](screenshots/image-2.png)
+
+![alt text](screenshots/image-3.png)
+
+![alt text](screenshots/image-4.png)
+
+
+#### Admin Role and Permissions
+An admin role has been added with elevated permissions. Admins can access a dedicated admin page to view, edit, and delete users and reviews. This provides better moderation and control over the platform’s content and user activity.
+
+![alt text](screenshots/image-1.png)
+
+
+#### Review Search Functionality
+A search page has been introduced, enabling users to easily find reviews by entering restaurant names. This feature improves user experience by helping them quickly locate relevant feedback before visiting a restaurant.
+
+![alt text](screenshots/image.png)
+
+
+#### Logging and Testing
+
+We integrated centralized logging across the application to monitor key events such as user sign-ins, failed logins, and admin actions. This helps with both debugging and maintaining a clear activity history. Additionally, we implemented automated tests using pytest to verify the behavior of routes, authentication, and role-based access control. These improvements enhance the reliability and maintainability of the application by catching issues early and providing visibility into system behavior.
+
+
+#### Video of Application in Action
+
+
+
+
+
+
+
+
+

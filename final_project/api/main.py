@@ -9,7 +9,6 @@ from starlette.responses import FileResponse
 from db.db_context import init_database
 from routers.review import review_router
 from routers.user import user_router
-from routers.movie import movie_router
 import os
 
 setup_logging()
@@ -44,7 +43,6 @@ async def read_index():
 
 app.include_router(review_router, tags=["Reviews"], prefix="/reviews")
 app.include_router(user_router, tags=["Users"], prefix="/users")
-app.include_router(movie_router, tags=["Restaurants"], prefix="/restaurants")
 
 app.mount("/", StaticFiles(directory="../frontend"), name="static")
 
