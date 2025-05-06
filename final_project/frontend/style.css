@@ -162,3 +162,31 @@ body {
     /* padding: 5px 10px; */
     /* border-radius: 5px; */
   }
+
+  #addNew {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFCD00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    margin-top: 10px;
+  }
+
+  #search_button {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #FFCD00; */
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 75px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    margin-top: 10px;
+  }
