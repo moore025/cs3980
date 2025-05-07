@@ -1,0 +1,45 @@
+2025-05-06 11:46:17,513 INFO main:21 Application starts...
+2025-05-06 11:46:17,688 INFO db.db_context:16 Database client created
+2025-05-06 11:50:20,860 INFO main:21 Application starts...
+2025-05-06 11:50:21,029 INFO db.db_context:16 Database client created
+2025-05-06 11:53:30,396 INFO main:21 Application starts...
+2025-05-06 11:53:30,570 INFO db.db_context:16 Database client created
+2025-05-06 11:58:49,695 INFO main:21 Application starts...
+2025-05-06 11:58:49,870 INFO db.db_context:16 Database client created
+2025-05-06 11:59:50,382 INFO routers.user:58 User with username = test2 created
+2025-05-06 12:00:35,586 INFO routers.user:82 test2 signed in
+2025-05-06 12:00:35,689 INFO routers.review:53 test2 is retrieving their reviews
+2025-05-06 12:02:32,281 INFO routers.review:53 test2 is retrieving their reviews
+2025-05-06 12:03:57,502 INFO routers.review:53 test2 is retrieving their reviews
+2025-05-06 12:05:11,833 INFO main:21 Application starts...
+2025-05-06 12:05:11,999 INFO db.db_context:16 Database client created
+2025-05-06 12:08:15,073 INFO routers.user:82 David signed in
+2025-05-06 12:08:15,214 INFO routers.review:53 David is retrieving their reviews
+2025-05-06 12:08:21,694 INFO routers.user:104 David retrieved all users
+2025-05-06 12:08:26,139 INFO routers.review:42 David is retrieving all reviews
+2025-05-06 12:09:28,618 INFO routers.review:53 David is retrieving their reviews
+2025-05-06 12:12:44,657 INFO routers.review:53 David is retrieving their reviews
+2025-05-06 12:12:56,515 INFO routers.user:82 testing signed in
+2025-05-06 12:12:56,576 INFO routers.review:53 testing is retrieving their reviews
+2025-05-06 12:12:59,375 INFO routers.user:104 testing retrieved all users
+2025-05-06 12:32:44,767 INFO main:21 Application starts...
+2025-05-06 12:32:44,954 INFO db.db_context:16 Database client created
+2025-05-06 13:07:06,890 INFO routers.user:58 User with username = test33 created
+2025-05-06 13:07:40,849 INFO routers.user:82 test33 signed in
+2025-05-06 13:07:40,939 INFO routers.review:53 test33 is retrieving their reviews
+2025-05-06 13:08:02,320 INFO routers.review:18 test33 is trying to add a review
+2025-05-06 13:08:02,392 INFO routers.review:26 test33 added a new review
+2025-05-06 13:08:15,654 INFO routers.review:66 test33 is searching for reviews
+2025-05-06 13:08:24,412 INFO routers.review:66 test33 is searching for reviews
+2025-05-06 13:08:26,622 INFO routers.review:53 test33 is retrieving their reviews
+2025-05-06 13:08:35,545 INFO routers.review:82 {'test33 edited a review'}
+2025-05-06 13:09:08,201 INFO routers.user:82 David signed in
+2025-05-06 13:09:08,256 INFO routers.review:53 David is retrieving their reviews
+2025-05-06 13:09:16,410 INFO routers.review:42 David is retrieving all reviews
+2025-05-06 13:09:17,648 INFO routers.user:104 David retrieved all users
+2025-05-06 13:09:37,967 INFO routers.user:136 David changed test2's role
+2025-05-06 13:09:37,973 INFO routers.user:104 David retrieved all users
+2025-05-06 13:09:41,192 INFO routers.user:136 David changed test2's role
+2025-05-06 13:09:41,199 INFO routers.user:104 David retrieved all users
+2025-05-06 13:09:43,534 INFO routers.user:146 David deleted test2
+2025-05-06 13:09:43,570 INFO routers.user:104 David retrieved all users
