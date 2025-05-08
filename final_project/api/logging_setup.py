@@ -3,7 +3,7 @@ from logging.handlers import TimedRotatingFileHandler
 
 
 def setup_logging():
-    file_log = TimedRotatingFileHandler("api/logs/app.log", when="d", interval=1)
+    file_log = TimedRotatingFileHandler("./logs/app.log", when="d", interval=1)
     console_log = StreamHandler()
     basicConfig(
         level=INFO,

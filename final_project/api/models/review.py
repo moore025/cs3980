@@ -1,3 +1,4 @@
+from fastapi import File, UploadFile
 from pydantic import BaseModel
 from beanie import Document
 
@@ -7,7 +8,7 @@ class Review(Document):
     rating: str
     description: str
     created_by: str
-    image: str = ""
+    image: str | None = None
 
     class Settings:
         name = "reviews"

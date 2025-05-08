@@ -37,6 +37,7 @@ const refreshReviews = () => {
             <span class="fw-bold fs-4">${x.restaurant}</span>
             <pre class="text-secondary ps-3">Rating: ${x.rating}/10</pre>
             <pre class="text-secondary ps-3">Review: ${x.description}</pre>
+            ${x.image ? `<img src="${x.image}" alt="Review image" class="img-fluid rounded" style="max-width: 150px; margin-left: 22rem;">` : ''}
           </div>
       `);
       });

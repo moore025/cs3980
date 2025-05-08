@@ -27,12 +27,22 @@ document.getElementById('form-add').addEventListener('submit', (e) => { //Event 
 
 const addReview = (restaurant, rating, description) => {
   const xhr = new XMLHttpRequest();
+  const formData = new FormData();
   console.log("Adding a review")
+
+  const imageInput = document.getElementById("formFileSm");
+  const imageFile = imageInput.files[0];
+
+  formData.append("restaurant", restaurant);
+  formData.append("rating", rating);
+  formData.append("description", description);
+  if (imageFile) {
+    formData.append("image", imageFile);
+  }
 
   xhr.open('POST', api, true);
   xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("Access Token"));
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify({ restaurant, rating, description }));
+  xhr.send(formData)
 
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 201) {
@@ -57,6 +67,7 @@ const refreshReviews = () => {
           <span class="fw-bold fs-4">${x.restaurant}</span>
           <pre class="text-secondary ps-3">Rating: ${x.rating}/10</pre>
           <pre class="text-secondary ps-3">Review: ${x.description}</pre>
+          ${x.image ? `<img src="${x.image}" alt="Review image" class="img-fluid rounded" style="max-width: 150px; margin-left: 22rem;">` : ''}
   
           <span class="options">
             <i onClick="tryEditReview('${x._id}')" data-bs-toggle="modal" data-bs-target="#modal-edit" class="fas fa-edit"></i>
@@ -91,6 +102,21 @@ document.getElementById('form-edit').addEventListener('submit', (e) => {
 });
 const editReview = (restaurant, rating, description) => {
   const xhr = new XMLHttpRequest();
+  const formData = new FormData();
+
+  formData.append("restaurant", restaurant);
+  formData.append("rating", rating);
+  formData.append("description", description);
+
+  // Optional image handling for PUT
+  const imageInput = document.getElementById("formFileEdit"); // Add this input in HTML
+  if (imageInput && imageInput.files.length > 0) {
+    formData.append("image", imageInput.files[0]);
+  }
+
+  xhr.open("PUT", `${api}/${selectedReview._id}`, true);
+  xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("Access Token"));
+  xhr.send(formData);
 
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -103,10 +129,6 @@ const editReview = (restaurant, rating, description) => {
       closeBtn.click();
     }
   };
-  xhr.open('PUT', `${api}/${selectedReview._id}`, true); //Update review
-  xhr.setRequestHeader("Authorization", "Bearer " + localStorage.getItem("Access Token"));
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify({ restaurant, rating, description })); 
 };
 
 const deleteReview = (id) => {

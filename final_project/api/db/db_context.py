@@ -16,5 +16,5 @@ async def init_database():
     client = AsyncIOMotorClient(my_config.connection_string)
     logger.info("Database client created")
     db = client["review_app"]
-    # fs = AsyncIOMotorGridFSBucket(db)
+    fs = AsyncIOMotorGridFSBucket(db)
     await init_beanie(database=db, document_models=[Review, User, Restaurant])

@@ -1,7 +1,17 @@
 import logging
+import base64
 from typing import Annotated
 from beanie import PydanticObjectId
-from fastapi import APIRouter, Depends, Path, HTTPException, status
+from fastapi import (
+    APIRouter,
+    Depends,
+    File,
+    Form,
+    Path,
+    HTTPException,
+    UploadFile,
+    status,
+)
 
 from auth.jwt_auth import TokenData
 from models.review import Review, ReviewRequest
@@ -13,14 +23,27 @@ logger = logging.getLogger(__name__)
 
 @review_router.post("", status_code=status.HTTP_201_CREATED)
 async def add_review(
-    review: ReviewRequest, user: Annotated[TokenData, Depends(get_user)]
+    # review: ReviewRequest,
+    user: Annotated[TokenData, Depends(get_user)],
+    restaurant: str = Form(...),
+    rating: str = Form(...),
+    description: str = Form(...),
+    image: UploadFile = File(None),
 ) -> Review:
     logger.info(f"{user.username} is trying to add a review")
+    base64_image = None
+    if image:
+        image_data = await image.read()
+        base64_bytes = base64.b64encode(image_data)
+        base64_image = (
+            f"data:{image.content_type};base64,{base64_bytes.decode('utf-8')}"
+        )
     newReview = Review(
-        restaurant=review.restaurant,
-        rating=review.rating,
-        description=review.description,
+        restaurant=restaurant,
+        rating=rating,
+        description=description,
         created_by=user.username,
+        image=base64_image,
     )
     newReview = await Review.insert_one(newReview)
     logger.info(f"{user.username} added a new review")
@@ -69,15 +92,27 @@ async def get_search_reviews(
 
 @review_router.put("/{id}")
 async def update_review(
-    review: ReviewRequest,
     id: PydanticObjectId,
     user: Annotated[TokenData, Depends(get_user)],
+    restaurant: str = Form(...),
+    rating: str = Form(...),
+    description: str = Form(...),
+    image: UploadFile = File(None),
 ) -> dict:
     existing_review = await Review.get(id)
     if existing_review:
-        existing_review.restaurant = review.restaurant
-        existing_review.rating = review.rating
-        existing_review.description = review.description
+        existing_review.restaurant = restaurant
+        existing_review.rating = rating
+        existing_review.description = description
+
+        if image:
+            image_data = await image.read()
+            base64_bytes = base64.b64encode(image_data)
+            base64_image = (
+                f"data:{image.content_type};base64,{base64_bytes.decode('utf-8')}"
+            )
+            existing_review.image = base64_image
+
         await existing_review.save()
         logger.info({f"{user.username} edited a review"})
         return {"message": "Review updated successfully"}

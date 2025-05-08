@@ -15,6 +15,7 @@ const refreshReviewsAdmin = () => {
             <pre class="text-secondary ps-3">Rating: ${x.rating}/10</pre>
             <pre class="text-secondary ps-3">Review: ${x.description}</pre>
             <pre class="text-secondary ps-3">Created By: ${x.created_by}</pre>
+            ${x.image ? `<img src="${x.image}" alt="Review image" class="img-fluid rounded" style="max-width: 150px; margin-left: 22rem;">` : ''}
     
             <span class="options">
               <i onClick="deleteReviewAdmin('${x._id}')" class="fas fa-trash-alt"></i>
