@@ -31,7 +31,7 @@ Additionally, you can also delete a review by clicking the "delete" or "trash" i
 
 Once again, this project was heavily influenced by our in-class demos and was an expansion upon the Todo App. Most of the changes that I made to the Todo App code were stylistic in order to fit the theme of an IC restaurant review application including changing the appearance in the [style.css](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/frontend/style.css) file, changing form labels and review output format in the [index.html](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/frontend/index.html) file, and adding rating functionality to the [model.py](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/model.py) class as well as updating CRUD operations in [review.py](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/review.py) and [main.js](https://github.com/moore025/cs3980/blob/ed9c9a8d57fa327d731d0ed9fd7b57e96bf2eaac/midterm_project/frontend/main.js) to handle this additional variable.
 
-## Final Project Updates
+# Final Project Updates
 
 We have implemented some major updates for the final version of the HawkBites app that is exhibited in this repository. These changes include: 
 - Implementing user login and data persistence functionality using MongoDB
