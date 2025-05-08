@@ -1,4 +1,4 @@
-# Midterm Project
+# Midterm Project (Group Final Project updates below)
 
 I made an Iowa City restaurant reviewer web app called HawkBites that allows for users to share their own personal reviews on local restaurants. Each review requires the restaurant name, a rating out of 10, and a review description. This app was an expansion upon our in-class demo Todo App, and I added functionality to share and update ratings as well as redesigning the interface.
 
@@ -38,6 +38,7 @@ We have implemented some major updates for the final version of the HawkBites ap
 - Adding admin role with advanced permissions such as editing, deleting and viewing users and reviews on a separate webpage
 - Search page where users can search for reviews by restaurant
 - Added logging and automated testing for better reliability and debugging
+- Adding the option for users to upload and attach an image to their review
 
 
 Here is the new home page after logging in with a username and password: 
@@ -70,6 +71,17 @@ A search page has been introduced, enabling users to easily find reviews by ente
 #### Logging and Testing
 
 We integrated centralized logging across the application to monitor key events such as user sign-ins, failed logins, and admin actions. This helps with both debugging and maintaining a clear activity history. Additionally, we implemented automated tests using pytest to verify the behavior of routes, authentication, and role-based access control. These improvements enhance the reliability and maintainability of the application by catching issues early and providing visibility into system behavior.
+
+#### Attaching images to a review
+Again, this is an optional feature for users who captured a picture at the restaurant related to the review e.g. a picture of the food, the environment, decor, etc. The review submission form was updated to include a space for image upload which accepts only .jpg, .jpeg, or .png images. Since this is an optional field, if a user does not have an image to submit, their review will be processed as normal similar to the Midterm project. If they would like to upload an image, though, they can do this and the image will be shown on their review card both on their end as well as anyone who searches for restaurant or looks for the review from the admin page. This was done by storing images as a base64 encoding into the reviews collection in MongoDB along with the associated review. An example of this process is shown below including writing a review, attaching an image (note that you cannot submit a .webp for example since the form only takes .png, .jpg, or .jpeg), and seeing the review with the attached image displayed from your own review page or upon using the search page.
+
+![image](https://github.com/user-attachments/assets/441ad732-854a-4883-80fe-895239d61c2c)
+
+![image](https://github.com/user-attachments/assets/7b1c25d0-777e-4318-a6fe-6e6ddf7c16d0)
+
+![image](https://github.com/user-attachments/assets/fbccd772-9b27-4784-8d41-9748bb894115)
+
+![image](https://github.com/user-attachments/assets/824298ba-070e-416c-974b-edf22b4c069a)
 
 
 #### Video of Application in Action
