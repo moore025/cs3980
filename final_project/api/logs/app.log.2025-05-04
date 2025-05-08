@@ -1,0 +1,48 @@
+2025-05-04 16:32:16,847 INFO main:21 Application starts...
+2025-05-04 16:32:17,069 INFO db.db_context:16 Database client created
+2025-05-04 16:36:34,542 INFO main:21 Application starts...
+2025-05-04 16:36:34,763 INFO db.db_context:16 Database client created
+2025-05-04 16:36:59,187 INFO routers.user:58 User with username = test created
+2025-05-04 16:38:38,072 INFO routers.user:58 User with username = tester created
+2025-05-04 20:11:14,755 INFO main:21 Application starts...
+2025-05-04 20:11:14,939 INFO db.db_context:16 Database client created
+2025-05-04 20:11:53,941 INFO routers.user:82 tester signed in
+2025-05-04 20:11:54,080 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 20:13:07,985 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 20:13:24,567 INFO routers.review:18 tester is trying to add a review
+2025-05-04 20:13:24,657 INFO routers.review:26 tester added a new review
+2025-05-04 20:13:33,079 INFO routers.review:66 tester is searching for reviews
+2025-05-04 20:13:39,695 INFO routers.review:66 tester is searching for reviews
+2025-05-04 20:14:10,631 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 20:15:04,735 INFO routers.review:18 tester is trying to add a review
+2025-05-04 20:15:04,812 INFO routers.review:26 tester added a new review
+2025-05-04 20:15:13,847 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 20:15:26,347 INFO routers.review:66 tester is searching for reviews
+2025-05-04 20:15:35,535 INFO routers.user:82 tester signed in
+2025-05-04 20:15:35,563 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 20:15:50,101 INFO routers.review:66 tester is searching for reviews
+2025-05-04 20:17:51,902 INFO routers.user:82 tester signed in
+2025-05-04 20:17:52,026 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 20:28:20,973 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 20:53:16,346 INFO routers.user:58 User with username = testing created
+2025-05-04 20:53:24,093 INFO routers.user:82 testing signed in
+2025-05-04 20:53:24,203 INFO routers.review:53 testing is retrieving their reviews
+2025-05-04 20:53:35,504 INFO routers.review:18 testing is trying to add a review
+2025-05-04 20:53:35,583 INFO routers.review:26 testing added a new review
+2025-05-04 20:53:40,222 INFO routers.review:82 {'testing edited a review'}
+2025-05-04 20:53:50,822 INFO routers.review:18 testing is trying to add a review
+2025-05-04 20:53:50,902 INFO routers.review:26 testing added a new review
+2025-05-04 20:53:53,764 INFO routers.review:94 testing is deleting review with ID=68181a2e004626defef58825
+2025-05-04 20:53:59,015 INFO routers.review:66 testing is searching for reviews
+2025-05-04 20:54:05,997 INFO routers.review:53 testing is retrieving their reviews
+2025-05-04 20:54:13,902 INFO routers.user:82 testing signed in
+2025-05-04 20:54:13,981 INFO routers.review:53 testing is retrieving their reviews
+2025-05-04 21:23:42,243 INFO routers.user:82 tester signed in
+2025-05-04 21:23:42,323 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 21:23:47,068 INFO routers.review:66 tester is searching for reviews
+2025-05-04 21:23:49,262 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 21:23:57,086 INFO routers.review:18 tester is trying to add a review
+2025-05-04 21:23:57,191 INFO routers.review:26 tester added a new review
+2025-05-04 21:24:01,531 INFO routers.review:53 tester is retrieving their reviews
+2025-05-04 21:24:03,753 INFO routers.review:94 tester is deleting review with ID=6818213d004626defef58826
+2025-05-04 21:24:09,366 INFO routers.review:82 {'tester edited a review'}
