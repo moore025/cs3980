@@ -84,7 +84,6 @@ Again, this is an optional feature for users who captured a picture at the resta
 ![image](https://github.com/user-attachments/assets/824298ba-070e-416c-974b-edf22b4c069a)
 
 
-#### Video of Application in Action
 
 
 
