@@ -7,6 +7,7 @@ class Review(Document):
     rating: str
     description: str
     created_by: str
+    image: str = ""
 
     class Settings:
         name = "reviews"
